@@ -47,6 +47,26 @@ public:
             }
         }
         return res;
+    };
+    int isConcatenated(DicTree* root, DicTree* ptr, const char * cstr, int begin, int end, int count){
+        for (int i = begin; i<end; i++){
+            // cout<<"i:"<<i<<" char:"<<cstr[i]<<endl;
+            ptr = ptr->nextNode(cstr[i]);
+            if (ptr == NULL) return 0; 
+            if (ptr->tag == 'e') {
+                int c1,c2;
+                c1 = isConcatenated(root,root,cstr,i+1,end,count+1) ;
+                c2 = isConcatenated(root,ptr,cstr,i+1,end,count) ;
+                // cout<<c1<<','<<c2<<endl;
+                return c1>c2?c1:c2;
+            }
+        }
+        if (ptr->tag == 'e') return count+1;
+        return 0;
+    };
+    bool less_length( const std::string& lhs, const std::string& rhs )
+    {
+        return lhs.length() < rhs.length();
     }
 };
 
