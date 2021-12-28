@@ -37,7 +37,7 @@ public:
     vector<string> findAllConcatenatedWordsInADict(vector<string>& words) {
         vector<string> res;
         DicTree* root = new DicTree('h');
-        for (string s : w){
+        for (string s : words){
             int count = isConcatenated(root, root, s.c_str(), 0, s.length(), 0);
 
             if ( count>1 ){
