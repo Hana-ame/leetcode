@@ -24,26 +24,36 @@ struct N{
 
 void test();
 // pN addChildAndReturnChild(pN node, char c, char tag);
+
 void printStringVector(vector<string>& sv);
 // void printNode(pN node);
 // void printTree(pN node, string s);
-bool isConcatenated(DicTree* root, string s);
+
+int isConcatenated(DicTree* root, DicTree* ptr, const char * cstr, int begin, int end, int count);
 
 class Solution {
 public:
     vector<string> sv;
     vector<string> findAllConcatenatedWordsInADict(vector<string>& words) {
-        sv = words;
-        printStringVector();
-        return words;
-    }
-    void printStringVector(){
-        cout<<"[";
-        for (auto s: sv)
-            cout<<'"'<<s<<'"'<<',';
-        cout<<"\b]"<<endl;
+        vector<string> res;
+        DicTree* root = new DicTree('h');
+        for (string s : w){
+            int count = isConcatenated(root, root, s.c_str(), 0, s.length(), 0);
+
+            if ( count>1 ){
+                res.push_back(s);
+            }else{
+                root->addString(s);
+            }
+        }
+        return res;
     }
 };
+
+bool less_length( const std::string& lhs, const std::string& rhs )
+{
+    return lhs.length() < rhs.length();
+}
 
 int main(){
 
@@ -55,28 +65,75 @@ int main(){
     Solution s = Solution();
 
     w = {"cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdgcat"};
-    res = s.findAllConcatenatedWordsInADict(w);
-    s.printStringVector();
+    sort(w.begin(),w.end(),less_length);
+    // printStringVector(w);
+    
+    DicTree* root = new DicTree('h');
+    for (string s : w){
+        int count = isConcatenated(root, root, s.c_str(), 0, s.length(), 0);
+        cout<<s<<" "<<count<<endl;
+
+        if ( count>1 ){
+            res.push_back(s);
+        }else{
+            root->addString(s);
+        }
+    }
+    printStringVector(res);
+
+root->printTree("^");
+    // res = s.findAllConcatenatedWordsInADict(w);
+    // s.printStringVector();
     // printStringVector(res);
 }
 
 void printStringVector(vector<string>& sv){
+    if (sv.size()==0){ cout<<"[]"<<endl; return; }
     cout<<"[";
     for (auto s: sv)
-        cout<<'"'<<s<<'"'<<',';
+        cout<<'"'<<s<<'"'<<",";
     cout<<"\b]"<<endl;
 }
 
 void test(){
     vector<string> res;
     DicTree* root = new DicTree('h');
-    if ( isConcatenated(root, "string") ){
+    string s = "abc";
+    int count = 0;
 
+    count = isConcatenated(root, root, s.c_str(), 0, s.length(), 0);
+    cout<<count<<endl;
+
+    if ( count>1 ){
+        res.push_back(s);
+    }else{
+        root->addString(s);
     }
+
+    root->addString(s);
+
+    count = isConcatenated(root, root, s.c_str(), 0, s.length(), 0);
+    cout<<count<<endl;
+
+    root->printTree("^");
+    printStringVector(res);
 }
 
-bool isConcatenated(DicTree* root, string s){
-
+int isConcatenated(DicTree* root, DicTree* ptr, const char * cstr, int begin, int end, int count){
+    for (int i = begin; i<end; i++){
+        // cout<<"i:"<<i<<" char:"<<cstr[i]<<endl;
+        ptr = ptr->nextNode(cstr[i]);
+        if (ptr == NULL) return 0; 
+        if (ptr->tag == 'e') {
+            int c1,c2;
+            c1 = isConcatenated(root,root,cstr,i+1,end,count+1) ;
+            c2 = isConcatenated(root,ptr,cstr,i+1,end,count) ;
+            // cout<<c1<<','<<c2<<endl;
+            return c1>c2?c1:c2;
+        }
+    }
+    if (ptr->tag == 'e') return count+1;
+    return 0;
 }
 /*
 void test(){

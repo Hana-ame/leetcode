@@ -17,6 +17,7 @@ public:
     void printTree(string s);
     DicTree* addAndReturnNewNode(char c, char tag);
     DicTree* addString(string s);
+    DicTree* nextNode(char c);
 };
 
 DicTree::DicTree(char tag){
@@ -40,13 +41,13 @@ void DicTree::printNode(){
 }
 
 void DicTree::printTree(string s){
-    bool emptyFlag = true;
+    // bool emptyFlag = true;
     for (char c = 'a'; c <= 'z'; c++){
         if (this->c[c-'a'] == NULL) continue;
         this->c[c-'a']->printTree(s+c);
-        emptyFlag = false;
+        // emptyFlag = false;
     }
-    if (emptyFlag || this->tag == 'e')
+    if (this->tag == 'e')
         cout << s << endl;
 }
 
@@ -66,4 +67,8 @@ DicTree* DicTree::addString(string s){
     }
     ptr->tag = 'e';
     return ptr;    
+}
+
+DicTree* DicTree::nextNode(char c){
+    return this->c[c-'a'];
 }
