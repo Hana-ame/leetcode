@@ -27,7 +27,7 @@ void test();
 void printStringVector(vector<string>& sv);
 // void printNode(pN node);
 // void printTree(pN node, string s);
-
+bool isConcatenated(DicTree* root, string s);
 
 class Solution {
 public:
@@ -57,7 +57,7 @@ int main(){
     w = {"cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdgcat"};
     res = s.findAllConcatenatedWordsInADict(w);
     s.printStringVector();
-    printStringVector(res);
+    // printStringVector(res);
 }
 
 void printStringVector(vector<string>& sv){
@@ -67,6 +67,18 @@ void printStringVector(vector<string>& sv){
     cout<<"\b]"<<endl;
 }
 
+void test(){
+    vector<string> res;
+    DicTree* root = new DicTree('h');
+    if ( isConcatenated(root, "string") ){
+
+    }
+}
+
+bool isConcatenated(DicTree* root, string s){
+
+}
+/*
 void test(){
     DicTree* root = new DicTree('c');
     DicTree* ptr;
@@ -97,7 +109,7 @@ void test(){
 }
 
 
-/*
+
 pN addChildAndReturnChild(pN node, char c, char tag){
     // pN ptr = node->c[c-'a'];
     if ( node->c[c-'a'] == NULL ){

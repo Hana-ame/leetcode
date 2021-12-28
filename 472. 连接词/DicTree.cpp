@@ -65,6 +65,5 @@ DicTree* DicTree::addString(string s){
             ptr = ptr->addAndReturnNewNode(c,' ');
     }
     ptr->tag = 'e';
-    return ptr;
-    
+    return ptr;    
 }
