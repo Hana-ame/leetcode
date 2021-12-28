@@ -28,6 +28,7 @@ void test();
 void printStringVector(vector<string>& sv);
 // void printNode(pN node);
 // void printTree(pN node, string s);
+bool less_length( const std::string& lhs, const std::string& rhs );
 
 int isConcatenated(DicTree* root, DicTree* ptr, const char * cstr, int begin, int end, int count);
 
@@ -37,6 +38,8 @@ public:
     vector<string> findAllConcatenatedWordsInADict(vector<string>& words) {
         vector<string> res;
         DicTree* root = new DicTree('h');
+
+        sort(words.begin(),words.end(),less_length);
         for (string s : words){
             int count = isConcatenated(root, root, s.c_str(), 0, s.length(), 0);
 
@@ -64,10 +67,9 @@ public:
         if (ptr->tag == 'e') return count+1;
         return 0;
     };
-    bool less_length( const std::string& lhs, const std::string& rhs )
-    {
-        return lhs.length() < rhs.length();
-    }
+    // bool less_length( const std::string& lhs, const std::string& rhs ){
+    //     return lhs.length() < rhs.length();
+    // };
 };
 
 bool less_length( const std::string& lhs, const std::string& rhs )
@@ -77,31 +79,36 @@ bool less_length( const std::string& lhs, const std::string& rhs )
 
 int main(){
 
-    test();
+    // test();
 
     vector<string> res;
     vector<string> w;
 
     Solution s = Solution();
 
-    w = {"cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdgcat"};
-    sort(w.begin(),w.end(),less_length);
-    // printStringVector(w);
-    
-    DicTree* root = new DicTree('h');
-    for (string s : w){
-        int count = isConcatenated(root, root, s.c_str(), 0, s.length(), 0);
-        cout<<s<<" "<<count<<endl;
-
-        if ( count>1 ){
-            res.push_back(s);
-        }else{
-            root->addString(s);
-        }
-    }
+    w = {"cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdgcat"}; 
+    res = s.findAllConcatenatedWordsInADict(w);
     printStringVector(res);
 
-root->printTree("^");
+
+    // w = {"cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdgcat"};    
+//     sort(w.begin(),w.end(),less_length);
+//     // printStringVector(w);
+    
+//     DicTree* root = new DicTree('h');
+//     for (string s : w){
+//         int count = isConcatenated(root, root, s.c_str(), 0, s.length(), 0);
+//         cout<<s<<" "<<count<<endl;
+
+//         if ( count>1 ){
+//             res.push_back(s);
+//         }else{
+//             root->addString(s);
+//         }
+//     }
+//     printStringVector(res);
+
+// root->printTree("^");
     // res = s.findAllConcatenatedWordsInADict(w);
     // s.printStringVector();
     // printStringVector(res);
