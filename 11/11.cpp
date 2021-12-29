@@ -8,26 +8,52 @@ using namespace std;
 
 class Solution {
 public:
+    int res  =  0;
+    void renew(int r){
+        if (r > res) res = r;
+    };
     int maxArea(vector<int>& height) {
-        int res = 0 ;
+        res = 0;
+        // int res = 0 ;
+        // int n = height.size();
+        // vector<bool> log(height.size(),true);
+        // bool endflag = false;
+        // int nowheight = 1;
+        // while (!endflag){
+        //     endflag = true;
+        //     for(int i = 0; i<n; i++){
+        //         if (log[i]) {log[i] = height[i]>=nowheight; endflag = false;}// 更新可用栏杆
+        //     }
+        //     int l=0; int r=n-1;
+        //     while(!log[l] && l<n) l++;
+        //     while(!log[r] && r>0) r--;
+        //     res = ( res>((r-l)*nowheight) )?res:((r-l)*nowheight); 
+        //     nowheight++;
+        // }
+        // // return 0;
+        
         int n = height.size();
-        vector<bool> log(height.size(),true);
-        bool endflag = false;
-        int nowheight = 1;
-        while (!endflag){
-            endflag = true;
-            for(int i = 0; i<n; i++){
-                if (log[i]) {log[i] = height[i]>=nowheight; endflag = false;}// 更新可用栏杆
+
+        for (int i = 0; i<n; i++){
+            int t = height[i];
+            for (int j = 0; j<i; j++){
+                if (height[j] >= t) {
+                    renew(t*(i-j));
+                    break;
+                }
             }
-            int l=0; int r=n-1;
-            while(!log[l] && l<n) l++;
-            while(!log[r] && r>0) r--;
-            res = ( res>((r-l)*nowheight) )?res:((r-l)*nowheight); 
-            nowheight++;
+            for (int j = n-1; j>i; j--){
+                if (height[j] >= t) {
+                    renew(t*(j-i));
+                    break;
+                }
+            }
         }
-        // return 0;
+
+
         return res;
-    }
+    };
+
 };
 
 int main(){
