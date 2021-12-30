@@ -5,7 +5,7 @@
 #include <unordered_map>
 
 using namespace std;
-
+/*
 class Solution {
 public:
     int res  =  0;
@@ -54,6 +54,24 @@ public:
         return res;
     };
 
+};
+*/
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int left = 0, right = height.size() - 1;
+        int result = 0;
+        while (left < right) {
+            int capacity = min(height[left], height[right]) * (right - left);
+            result = max(result, capacity);
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return result;
+    }
 };
 
 int main(){
