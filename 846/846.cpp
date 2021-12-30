@@ -41,47 +41,25 @@ public:
 
         int n = hand.size();
         if (n%groupSize != 0) return false;
+        int gn = n/groupSize;
         sort(hand.begin(),hand.end());
         
-        deque<int> q;
-    
-        // int last = hand[0];
-        // q.push_back(last+groupSize);
-        int pos = 0;
-        int last = hand[0];
-        q.push_back(last+groupSize-1);
-        int suppose = 1;
-        // hand.push_back(-1);
-        for(int i = 0; i<n; i++){
-            if (hand[i] != last){
-                int lastlen = i-pos;
-                int handi = hand[i];
-                while (lastlen > suppose){
-                    suppose++;
-                    q.push_back(last+groupSize-1);
+        for (int pos = 0; pos<n; pos++){
+            if (hand[pos] != -1){
+                int np = hand[pos];
+                int nl = np+groupSize;
+                for (int i=pos; i<n; i++){
+                    if (hand[i] == np) {
+                        hand[i] = -1;
+                        np++;
+                    }
+                    if (np==nl) break;
                 }
-                // assert(suppose == lastlen);
-                while (!q.empty() && q[0]==last){
-                    q.pop_front();
-                    suppose--;
-                }
-                if (!q.empty() && handi!=last+1) return false;
-                last = handi;
-                pos = i;                
+                if (np!=nl) return false;
+                else gn--;
+                if (gn==0) return true;
             }
         }
-        int lastlen = n-pos;
-        int handi = -1;//hand[i];
-        while (lastlen > suppose){
-            suppose++;
-            q.push_back(last+groupSize-1);
-        }
-        // assert(suppose == lastlen);
-        while (!q.empty() && q[0]==last){
-            q.pop_front();
-            suppose--;
-        }
-        if (!q.empty()) return false;
         return true;
     }
 };
