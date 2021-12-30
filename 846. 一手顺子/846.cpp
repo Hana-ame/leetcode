@@ -4,6 +4,7 @@
 #include <algorithm>    // std::sort
 #include <unordered_map>
 #include <deque>
+#include <queue>
 
 using namespace std;
 
@@ -24,35 +25,26 @@ public:
         int last = 0;
         for(int i : hand){
             if (nl == 0){
-                tl++;
-                last = i;        
-                nl++;
-                q.push_back(i+groupSize-1);
-                continue;
-            }
-            if ( i == q[0]){
-                nl--;
-                q.pop_front();
-                continue;
-            }
-            if (i== last){
-                tl++;
-                if (tl>nl){
-                    nl++;
-                    q.push_back(i+groupSize-1);
+                // nl++;
+                last = i;
+                // continue;
+            }            
+            if (i == last+1){
+                for (int j = tl-nl; j>0;j--){
+                    q.push_back(last+groupSize-1);
                 }
-                // last = i;
-                continue;
-            }
-            if (i==last+1){ // 清算
-                if(nl != tl) return false;  
-                tl = 1;
+                for (int j= nl-tl; j>0; j--){
+                    if (q[0] == last) q.pop_front();
+                    else return false;
+                }
+                tl = 0;
                 last++;
-                continue;
-            }   
-            return false;
-        }
+            }
+            if (i == last) {
+                tl++;
+            }
 
+        }
         return true;
     }
 };
