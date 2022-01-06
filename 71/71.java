@@ -2,7 +2,8 @@ class Solution {
     public String simplifyPath(String path) {
         String[] arrOfStr = path.split("/", -1);
 
-        ArrayList<String> res = new ArrayList<String>(arrOfStr.length);
+        ArrayList<String> res = new ArrayList<String>();
+        // ArrayList<String> res = new ArrayList<String>(arrOfStr.length);
         
         StringBuilder sb = new StringBuilder();
 
@@ -13,7 +14,7 @@ class Solution {
             if (s.equals("..")) {
                 if (res.size() != 0)
                     res.remove(res.size()-1);
-                continue;
+                // continue;
             }else{
                 res.add(s);
             }
