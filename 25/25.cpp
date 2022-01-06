@@ -42,7 +42,7 @@ public:
         if (ptr->next == NULL) return NULL;
         ListNode* res = ptr->next;
         ptr->next = ptr->next->next;
-        res->next = NULL;
+        res->next = NULL; // 会有成环情况
         return res;
     }
     void insertNextNode(ListNode* ptr, ListNode* temp){
