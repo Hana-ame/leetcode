@@ -1,7 +1,11 @@
 思路记录，↑时间靠后 时间靠前↓
 
 ----
+[48. Rotate Image](https://leetcode.com/problems/rotate-image/)
 
+数学题，仔细算就行。
+
+----
 [962. Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp/)
 
 单调栈
