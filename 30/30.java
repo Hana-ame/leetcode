@@ -104,7 +104,7 @@ class Solution {
     // };
 }
 
-
+/* 答案
 class Solution {
     public List<Integer> findSubstring(String s, String[] words) {
         int maxLen = words[0].length() * words.length;
@@ -119,7 +119,7 @@ class Solution {
         }
         
         for(int k = 0; k < wordLen; k++) {
-            for(int i = k; i < s.length() - maxLen + 1;) {
+            for(int i = k; i <= s.length() - maxLen ;) {
                 int count = numOfWords;
                 for(int j=i + maxLen; j > i; j = j-wordLen) {
                     String subs = s.substring(j - wordLen, j);
@@ -148,7 +148,7 @@ class Solution {
         return result;
     }
 }
-
+*/
 class Main{
     public static void main(String[] args){        
         Solution solution = new Solution();
