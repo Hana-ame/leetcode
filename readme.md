@@ -2,6 +2,30 @@
 
 ----
 
+[962. Maximum Width Ramp](https://leetcode.com/problems/maximum-width-ramp/)
+
+单调栈
+
+java的类名字起得真是
+
+    Stack<Integer> stack = new Stack<Integer>();
+    stack.empty();
+    stack.peek();
+    stack.push(e);
+    stack.pop();
+
+    LinkedList<Integer> stack = new LinkedList<>();
+    stack.isEmpty();
+    stack.peek()
+    stack.push(e);
+    stack.pop();
+
+    ArrayList<Integer> stack = new ArrayList<Integer>();
+
+[ArrayList](https://www.w3schools.com/java/java_arraylist.asp)
+
+----
+
 [51. N-Queens](https://leetcode.com/problems/n-queens/)
 
 知道用dfs的话很简单
