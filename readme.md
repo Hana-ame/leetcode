@@ -4,7 +4,21 @@
 
 [51. N-Queens](https://leetcode.com/problems/n-queens/)
 
+知道用dfs的话很简单
 
+虚类实例化
+
+    List<List<String>> res;
+    res = new ArrayList<List<String>>();
+
+char [] 转 String
+
+    for (char [] cstr : memo){
+        String str = new String(cstr);
+        result.add(str);
+    }
+
+一维数组加速？
 
 ----
 [37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver/)
