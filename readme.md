@@ -1,6 +1,21 @@
 思路记录，↑时间靠后 时间靠前↓
 
 ----
+[49. Group Anagrams](https://leetcode.com/problems/group-anagrams/)
+
+Java [HashMap的用法。](https://www.runoob.com/java/java-hashmap.html)
+
+字符串自己写hash的话会快一点。
+
+    String.length()
+
+`""`内部的是文件的编码格式传进去的（比如文件是utf8，那么一个汉字3byte，一个英字1byte），解释是使用的javac时指定的encoding方式。编码不对会读不出。
+
+汉字 -> 3,3,..,3  -> 2,2,2,..,2 -> GBK格式读（读不出会报错）
+
+所以一个char大概是3byte？并没有sizeof
+
+----
 [48. Rotate Image](https://leetcode.com/problems/rotate-image/)
 
 数学题，仔细算就行。
@@ -62,7 +77,7 @@ int to char
 
     char c = (char)('1'+1);
 
-方法有问题。
+方法有问题。待续。
 
 ----
 [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
