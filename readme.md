@@ -1,4 +1,9 @@
 思路记录，↑时间靠后 时间靠前↓
+----
+
+[1041. Robot Bounded In Circle](https://leetcode.com/problems/robot-bounded-in-circle/)
+
+成立条件 回到原点 或者 **不面向北方** 
 
 ----
 [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/)
