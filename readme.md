@@ -1,16 +1,32 @@
 思路记录，↑时间靠后 时间靠前↓
 
 ----
+[1222. Queens That Can Attack the King](https://leetcode.com/problems/queens-that-can-attack-the-king/)
+
+[arr2List](https://stackoverflow.com/questions/1073919/how-to-convert-int-into-listinteger-in-java)
+
+    Arrays.stream(ints).boxed().collect(Collectors.toList());
+
+这个好慢！甚至不如自己遍历。
+
+    List<Integer> list = new ArrayList<>();
+    for (int i : ints){
+        list.add(i);
+    }
+    return list;
+
+[提交记录](https://leetcode.com/submissions/detail/616092142/)
+
+----
 [52. N-Queens II](https://leetcode.com/problems/n-queens-ii/)
 
 稍稍有点慢，TODO看一下别人代码。
-
 
 ----
 
 [1041. Robot Bounded In Circle](https://leetcode.com/problems/robot-bounded-in-circle/)
 
-成立条件 回到原点 或者 **不面向北方** \
+成立条件 回到原点 或者 **不面向北方** 
 
 java String to char[]
 
