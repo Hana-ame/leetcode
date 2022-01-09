@@ -3,7 +3,11 @@
 
 [1041. Robot Bounded In Circle](https://leetcode.com/problems/robot-bounded-in-circle/)
 
-成立条件 回到原点 或者 **不面向北方** 
+成立条件 回到原点 或者 **不面向北方** \
+
+java String to char[]
+
+    char [] cs = s.toCharArray();
 
 ----
 [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/)
