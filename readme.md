@@ -1,4 +1,11 @@
 思路记录，↑时间靠后 时间靠前↓
+
+----
+[52. N-Queens II](https://leetcode.com/problems/n-queens-ii/)
+
+稍稍有点慢，TODO看一下别人代码。
+
+
 ----
 
 [1041. Robot Bounded In Circle](https://leetcode.com/problems/robot-bounded-in-circle/)
