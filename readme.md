@@ -1,5 +1,9 @@
 思路记录，↑时间靠后 时间靠前↓
 
+[306. 累加数](https://leetcode-cn.com/problems/additive-number/)
+
+穷举，神经病题目
+
 ----
 [1222. Queens That Can Attack the King](https://leetcode.com/problems/queens-that-can-attack-the-king/)
 
