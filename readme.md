@@ -1,5 +1,45 @@
 思路记录，↑时间靠后 时间靠前↓
 
+[452. Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/)
+
+~~优先队列~~
+
+看错题了
+
+排序
+
+        ...
+        Arrays.sort(points, (a,b)->compare(a,b));
+        ...
+    
+    private static int compare(int[]a,int[]b){
+        return a[1] - b[1];
+    }
+
+贪心
+
+----
+
+[1036. 逃离大迷宫](https://leetcode-cn.com/problems/escape-a-large-maze/)
+
+自己想的方法复杂度太大。
+
+优化也垃圾。
+
+java 二维数组排序
+
+    Arrays.sort(blocked, new Comparator<int []>() {
+        // @Override
+        public int compare(int [] a, int [] b){
+            if (a[0]  ==  (b[0])){
+                return a[1] - b[1];
+            }
+            return a[0] - b[0];
+        }
+    });
+
+----
+
 [306. 累加数](https://leetcode-cn.com/problems/additive-number/)
 
 穷举，神经病题目
