@@ -21,7 +21,9 @@ class Solution {
         for (int i=0; i<len; i++){
             // res += (i+1)*(len-i);
             int p = s.charAt(i) - 'a';
-            
+            sumG += i-pos[p];
+            res += sumG;
+            pos[p] = i;            
         }
 
 
