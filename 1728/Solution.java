@@ -32,7 +32,12 @@ class Solution {
         // dunno what to do but..
         // the most optimal choise of cat is ...
         // not go directly to food, image a choise that cat can always check mouse but mouse can also always escape form cat (that's a draw)
-        // the 
+        // the         
+        // ok give up 220512
+        // 此处开始 220519
+        // 有输有赢，       
+        // 问题规模，8*8格子 64*64状态 4096
+        // |1-bit|8-bit|8-bit| 轮数，
         return false;
     }
     private void judge(){        
