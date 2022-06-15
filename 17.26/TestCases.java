@@ -6,7 +6,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-class TestCase{
+class TestCases{
     public static String getHTMLwithCookie(String urlToRead) throws Exception {
         StringBuilder result = new StringBuilder();
         URL url = new URL(urlToRead);
@@ -26,14 +26,14 @@ class TestCase{
         return result.toString();
     }
     public static int[][] UnMarshalInt2D(String t){
-        String inner = t.substring(2,t.length()-2);
-        String [] arr2d = inner.split("\\], ?\\["); // fuck this https://stackoverflow.com/questions/21816788/unclosed-character-class-error
+        String inner = t.substring(1,t.length()-1);
+        String [] arr2d = inner.split(" *, *"); // fuck this https://stackoverflow.com/questions/21816788/unclosed-character-class-error
         // int m = arr.length;
         int [][] res = new int[arr2d.length][];
         for (int i=0;i<arr2d.length;i++){
             res[i] = UnMarshalInt1D(arr2d[i]);
             // String [] arr1d = arr2d[i].split(", ");
-            // res[i] = new int[arr2d.length];
+            // res[i] = new int[arr1d.length];
             // for (int j=0; j<arr1d.length; j++){
             //     // System.out.println(arr1d[j]);
             //     res[i][j] = Integer.parseInt(arr1d[j]);
@@ -42,12 +42,21 @@ class TestCase{
         return res;
     }
     public static int[] UnMarshalInt1D(String t){
+        System.out.println(t);
         String inner = t.substring(1,t.length()-1);
-        String [] arr1d = inner.split(", ?");
+        String [] arr1d = inner.split(" *, *");
         int [] res = new int[arr1d.length];
         for (int j=0; j<arr1d.length; j++){
             // System.out.println(arr1d[j]);
-            res[j] = Integer.parseInt(arr1d[j]);
+            try{
+                res[j] = Integer.parseInt(arr1d[j]);
+            }catch(NumberFormatException e){
+                e.printStackTrace();
+                System.out.println(arr1d[j]);
+                // System.out.println(arr1d[j]);
+                res[j] = 0;
+            }
+
         }        
         return res;
     }
@@ -58,10 +67,13 @@ class TestCase{
     int i = 0;
     String txt = "";    
     String [] txtArr = null;
-    TestCase(String url) throws Exception {
+    TestCases(String url) throws Exception {
         // url = _url;
         i=0;
-        txt = getHTMLwithCookie(url);
+        if (url.startsWith("http"))
+            txt = getHTMLwithCookie(url);
+        else 
+            txt = url;
         txtArr = txt.split("\n");
     }
     public int[][] UnMarshalInt2D(){

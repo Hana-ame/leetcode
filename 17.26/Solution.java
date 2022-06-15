@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-
+// import TestCases;
 class Solution {
     public List<String> computeSimilarities(int[][] docs) {
         ArrayList<String> res = new ArrayList<>();
@@ -37,5 +37,15 @@ class Solution {
         return String.format("%d,%d: %.4f",id1,id2,similarity);
     }
     public static void main(String[] args) {
-        
+        var tc = (TestCases)null;
+        try {
+            tc = new TestCases("[[14, 15, 100, 9, 3], [32, 1, 9, 3, 5], [15, 29, 2, 6, 8, 7], [7, 10]]");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        var docs = tc.UnMarshalInt2D();
+        var so = new Solution();
+        so.computeSimilarities(docs) ;
+    
     }
+}

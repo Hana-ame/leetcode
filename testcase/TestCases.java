@@ -27,23 +27,22 @@ class TestCase{
     }
     public static int[][] UnMarshalInt2D(String t){
         String inner = t.substring(2,t.length()-2);
-        String [] arr2d = inner.split("\\], ?\\["); // fuck this https://stackoverflow.com/questions/21816788/unclosed-character-class-error
+        String [] arr2d = inner.split("\\], \\["); // fuck this https://stackoverflow.com/questions/21816788/unclosed-character-class-error
         // int m = arr.length;
         int [][] res = new int[arr2d.length][];
         for (int i=0;i<arr2d.length;i++){
-            res[i] = UnMarshalInt1D(arr2d[i]);
-            // String [] arr1d = arr2d[i].split(", ");
-            // res[i] = new int[arr2d.length];
-            // for (int j=0; j<arr1d.length; j++){
-            //     // System.out.println(arr1d[j]);
-            //     res[i][j] = Integer.parseInt(arr1d[j]);
-            // }
+            String [] arr1d = arr2d[i].split(", ");
+            res[i] = new int[arr2d.length];
+            for (int j=0; j<arr1d.length; j++){
+                // System.out.println(arr1d[j]);
+                res[i][j] = Integer.parseInt(arr1d[j]);
+            }
         }
         return res;
     }
     public static int[] UnMarshalInt1D(String t){
         String inner = t.substring(1,t.length()-1);
-        String [] arr1d = inner.split(", ?");
+        String [] arr1d = inner.split(", ");
         int [] res = new int[arr1d.length];
         for (int j=0; j<arr1d.length; j++){
             // System.out.println(arr1d[j]);
