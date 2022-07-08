@@ -2,7 +2,7 @@ import java.util.*;
 
 import java.util.Arrays;
 
-class Solution {
+class Solution2 {
     int wordsLen;
     int sLen;
     int flagCount;
