@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # echo $0 // ./*.sh
 # echo $1 // first parameter
 
