@@ -9,6 +9,7 @@ class Solution {
                 if (r[j].equals(nn)) {
                     no++;
                     nn = n+"("+String.valueOf(no)+")";
+                    j=0;
                 }
             }
             r[i] = nn;
