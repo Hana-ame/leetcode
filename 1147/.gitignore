@@ -1,0 +1,13 @@
+!lib/*.jar
+~lib/*.jar
+!lib/junit-platform-console-standalone-1.9.2.jar
+!junit-platform-console-standalone-1.9.2.jar
+~lib/junit-platform-console-standalone-1.9.2.jar
+~junit-platform-console-standalone-1.9.2.jar
+lib
+~lib/*.jar
+!lib/*.jar
+!lib/junit-platform-console-standalone-1.9.2.jar
+!junit-platform-console-standalone-1.9.2.jar
+~lib/junit-platform-console-standalone-1.9.2.jar
+~junit-platform-console-standalone-1.9.2.jar
