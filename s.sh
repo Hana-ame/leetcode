@@ -27,4 +27,6 @@ public class SolutionTest {
 
 echo "lib" > "$1/.gitignore"
 
+cp Utils.java $1
+
 code $1
