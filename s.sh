@@ -4,6 +4,7 @@
 # echo $1 // first parameter
 
 mkdir $1
+
 echo "import java.util.*;
 
 class Solution {
@@ -13,5 +14,17 @@ class Solution {
     }
 }
 " > "$1/Solution.java"
+
+echo "import org.junit.Test;
+
+public class SolutionTest {
+    @Test
+    public void test(){
+        Solution solution = new Solution();
+        
+    }
+}"> "$1/SolutionTest.java"
+
+echo "lib" > "$1/.gitignore"
 
 code $1
