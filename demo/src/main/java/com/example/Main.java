@@ -1,13 +1,24 @@
 package com.example;
 
-import io.github.cdimascio.dotenv.Dotenv;
+import java.io.File;
+import java.nio.charset.StandardCharsets;
+
+import org.apache.commons.io.FileUtils;
+
+// import io.github.cdimascio.dotenv.Dotenv;
+// import io.github.cdimascio.dotenv.DotenvEntry;
+
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        Dotenv dotenv = Dotenv.load();
-        String env = dotenv.get("MY_ENV_VAR1");
-        System.out.println(env);
+        try {
+            String exampleRequest = FileUtils.readFileToString(new File("example.json"), StandardCharsets.UTF_8);  
+            System.out.println(exampleRequest);          
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
 
     }
 }
