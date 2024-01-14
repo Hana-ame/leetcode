@@ -1,8 +1,0 @@
-.vscode
-
-*.exe
-*.exe~
-
-*.class
-playground/*
-node_modules/*
