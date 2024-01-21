@@ -15,6 +15,10 @@ import java.lang.reflect.Type;
 
 
 public class Main {
+    public static int whoami() {
+        System.out.println("in main");
+        return 1;
+    }
     public static void main(String[] args) {
         try {
             String easyString = FileUtils.readFileToString(new File("example.json"), StandardCharsets.UTF_8);  
