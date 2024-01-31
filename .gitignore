@@ -1,1 +1,8 @@
 *.class
+
+demo/src/main/java/com/example/tools
+demo/src/main/java/com/example/util
+
+demo/target
+
+testcases
