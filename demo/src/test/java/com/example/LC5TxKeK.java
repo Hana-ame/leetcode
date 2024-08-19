@@ -9,13 +9,13 @@ import com.example.tools.PriorityQueueWithMemo;
 public class LC5TxKeK {
   public static void main(String[] args) {
     // input 
-    ArrayList<Double> arr = Utils.getDataFromJsonFile("5TxKek.json");
+    ArrayList<Double> arr = Utils.getDataFromJsonFile("testcases/5TxKek.json");
     int [] nums = new int[arr.size()];
     for (int i=0; i<nums.length; i++) {
       double d = arr.get(i);
       nums[i] = (int) Math.round(d);
     }
-    // arr = MyUtils.asList(nums);
+    // arr = MyUtils.Arrays.asList(nums);
 
     // https://leetcode.cn/problems/5TxKeK/?envType=daily-question&envId=2024-02-01
     PriorityQueueWithMemo<Long> head = new PriorityQueueWithMemo<Long>((a,b)->{return Long.compare(b,a);},(long)0){
@@ -62,10 +62,10 @@ public class LC5TxKeK {
         res[i] = (int)sum;
     }
     // output
-    System.out.println(MyUtils.asList(res));
+    System.out.println(MyUtils.Arrays.asList(res));
 
     int[] official = numsGame(nums);
-    System.out.println(MyUtils.asList(official));
+    System.out.println(MyUtils.Arrays.asList(official));
 
     System.out.println(official.length);
     System.out.println(res.length);

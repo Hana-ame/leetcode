@@ -1,0 +1,4 @@
+[submodule "demo/src/main/java/com/example/tools"]
+	path = demo/src/main/java/com/example/tools
+	url = git@github.com:Hana-ame/Tools.git
+	branch = java-maven
