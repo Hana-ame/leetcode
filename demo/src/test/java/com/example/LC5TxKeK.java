@@ -2,9 +2,9 @@ package com.example;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
-import com.example.tools.MidPriorityQueue;
 import com.example.tools.MyUtils;
 import com.example.tools.PriorityQueueWithMemo;
+import com.example.tools.Deprecated.MidPriorityQueue;
 
 public class LC5TxKeK {
   public static void main(String[] args) {
