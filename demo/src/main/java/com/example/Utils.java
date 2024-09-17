@@ -10,6 +10,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.Gson;
 
 public class Utils {
+  // number -> Double
+  // 
   public static <T> T getDataFromJsonFile(String pathname) {
     T json = null;
     try {
